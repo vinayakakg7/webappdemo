@@ -47,13 +47,18 @@
             </plugin>
             
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.2</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+        <configuration>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+            <archive>
+                <manifest>
+                    <addClasspath>true</addClasspath>
+                    <mainClass>com.example.webapp.HelloServlet</mainClass>
+                </manifest>
+            </archive>
+        </configuration>
+    </plugin>
         </plugins>
     </build>
 </project>
