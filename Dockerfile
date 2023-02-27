@@ -1,8 +1,10 @@
+FROM ubuntu
 FROM tomcat:9.0-jdk11
+
 
 LABEL maintainer="vinayaka K G <kg@example.com>"
 
-COPY target/webapp.war /tmp
+COPY target/webapp.war /tmp/webapp.war
 
 RUN apt-get update && apt-get install -y unzip
 
