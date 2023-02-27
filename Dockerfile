@@ -1,11 +1,12 @@
-FROM maven as build
-WORKDIR /app
-copy . .
-RUN mvn install
 
+# Use Tomcat as the base image
+FROM tomcat:9.0.52-jdk8-openjdk
 
-FROM openjdk:11.0
-WORKDIR /app
-COPY --from=build /app/target/webapp.war /app/
+# Copy the WAR file into the webapps folder of the Tomcat server
+COPY target/webapp.war /usr/local/tomcat/webapps/
+
+# Expose the default Tomcat port
 EXPOSE 8090
-CMD ["java" , "-jar" , "webapp.war" ]
+
+# Start the Tomcat server when the container starts
+CMD ["catalina.sh", "run"]
