@@ -1,4 +1,4 @@
-FROM tomcat:9.0
+FROM tomcat:9.0-jdk11
 
 LABEL maintainer="vinayaka K G <kg@example.com>"
 
