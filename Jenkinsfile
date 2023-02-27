@@ -42,6 +42,15 @@ pipeline{
                }
             }
     }
+
+    stage('Docker image build'){
+      steps{
+        script{
+			def imageTag = "${DOCKER_NAMESPACE}/${env.JOB_NAME}:${env.BUILD_ID}"
+			 bat "docker build -t ${imageTag} -f Dockerfile ."
+        }
+      }
+    }
      
 }
 }
