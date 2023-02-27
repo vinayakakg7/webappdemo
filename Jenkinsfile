@@ -21,5 +21,15 @@ pipeline{
                 bat 'mvn clean install -DskipTests=true'
             }
         }
+    stage('Run SonarQube analysis') {
+          steps {
+
+             script{
+                withSonarQubeEnv(credentialsId: 'sonarapi') {
+                    bat 'mvn clean package sonar:sonar'
+               }
+           }
+           }
+       }
 }
 }
