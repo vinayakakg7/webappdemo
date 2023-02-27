@@ -9,6 +9,7 @@ pipeline{
     environment{
         GIT_REPO = 'https://github.com/vinayakakg7/webappdemo.git'
         GIT_BRANCH = 'main'
+        DOCKER_NAMESPACE = "vinayakakg7"
     }
     stages {
         stage('Clone Git repository') {
