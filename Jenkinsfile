@@ -16,5 +16,10 @@ pipeline{
                 git branch: GIT_BRANCH, url: GIT_REPO
             }
         }
+    stage('Build and test using Maven') {
+            steps {
+                bat 'mvn clean install -DskipTests=true'
+            }
+        }
 }
 }
